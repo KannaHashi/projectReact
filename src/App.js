@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import './style.css';
+import Navbar from "./Pages/Navbar";
+import ProtectedRoute from "./Component/ProtectedRoute";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Select from "./Pages/Select";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faArrowLeft, faKey, faUserCircle, faHome, faChevronRight, faBan, faPenSquare, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Navbar>
+              <Home />
+            </Navbar>
+          </Route>
+          <Route exact path="/about">
+            <Navbar>
+              <About />
+            </Navbar>
+          </Route>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/select" component={Select} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
