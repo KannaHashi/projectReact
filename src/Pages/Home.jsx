@@ -1,5 +1,5 @@
-import { faBan, faChevronRight, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
+import { faBan, faChevronRight, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 import logo from "./../Nyantren.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
@@ -46,7 +46,7 @@ class Home extends Component {
                         <h3 className="text-dark text-start">Crud</h3>
                      </div>
                      <div className="row rowProfile-px py-3 justify-content-around h-50">
-                        <Link to="#crudsantri" className="col mxx-3 shadow rounded">
+                        <Link to="data/#crudsantri" className="col mxx-3 shadow rounded links">
                            <div className="card border-0 justify-content-center">
                               <img src={Wavy} style={{width: "50%"}} alt="" className="d-flex align-self-center"/>
                               <br/>
@@ -55,7 +55,7 @@ class Home extends Component {
                               </h5>
                            </div>
                         </Link>
-                        <Link to="#crudsantri" className="col mxx-3 shadow rounded">
+                        <Link to="data/#crudmusyrif" className="col mxx-3 shadow rounded links">
                            <div className="card border-0 justify-content-center">
                               <img src={Wavy} style={{width: "50%"}} alt="" className="d-flex align-self-center"/>
                               <br/>
@@ -64,7 +64,7 @@ class Home extends Component {
                               </h5>
                            </div>
                         </Link>
-                        <Link to="crudguru" className="col mxx-3 shadow rounded">
+                        <Link to="data/#crudguru" className="col mxx-3 shadow rounded links">
                            <div className="card border-0 justify-content-center">
                               <img src={Wavy} style={{width: "50%"}} alt="" className="d-flex align-self-center"/>
                               <br/>

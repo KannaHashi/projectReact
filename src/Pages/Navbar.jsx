@@ -38,17 +38,15 @@ const Navbar = ({children}) => {
    }
    var x = window.matchMedia("(max-width: 720px)")
 
-   const CollapseBtn = () => {
-      if (x.matches) {
-         var pp = document.getElementById = "pp"
-         pp.onclick = function() {OpenNav()}
-      } else {
-         return(
-            <button className="border-0 btn-outline-0 mt-2 bg-light collapse-button" id="fstbtn" onClick={OpenNav}><span className="navbar-toggler-icon"></span></button>
-            // <button className="border-0 btn-outline-0 mt-2 bg-light collapse-button" id="scbtn" onClick={CloseNav}><span className="navbar-toggler-icon"></span></button>
-         )
-      }
-   }
+   // const CollapseBtn = () => {
+   //    if (x.matches) {
+   //       var pp = document.getElementById = "pp"
+   //       pp.onclick = function() {OpenNav()}
+   //    } else {
+   //       return(
+   //       )
+   //    }
+   // }
 
    const [auth, setAuth] = React.useState(false);
    React.useMemo(() => {
@@ -58,7 +56,7 @@ const Navbar = ({children}) => {
    }, []);
    
    const ProfileAuthCondition = () => {
-      if (auth === true) {
+      if (auth === false) {
          return(
             <ul className="navbar-nav" style={{fontSize: "12px"}}>
                <li className="nav-item">
@@ -82,7 +80,7 @@ const Navbar = ({children}) => {
          <div className="container-fluid h-100">
             <div className="row h-100 p-0 d-flex justify-content-end">
                <div className="col-2 p-0">
-                  <div className="sidenav text-start overflow-auto" id="mySideNav">
+                  <div className="sidenav text-start overflow-auto bg-lgreen-gradient-top" id="mySideNav">
                      {/* <img alt="Nyantren"/> */}
                      <div className="p-4">
                         <span className="navbar-brand text-light">
@@ -95,18 +93,7 @@ const Navbar = ({children}) => {
                         <span className="fw-light text-center text-light mt-2" style={{fontSize: "10px", fontWeight: "lighter"}}>Nisn : 0027274810</span>
                      </div>
                      <div className="row text-start p-0 mx-0 mt-3">
-                        <a href="javascript:void(0)" className="listile" onClick="crud">Data</a>
-                        <div className="p-0">
-                           <a href="#crudsantri" className="links listile ps-5">
-                              Data Santri
-                           </a>
-                           <a href="#crudmusyrif" className="links listile ps-5">
-                              Data Musyrif
-                           </a>
-                           <a href="#crudguru" className="links listile ps-5">
-                              Data Guru
-                           </a>
-                        </div>
+                        <Link to="/data" className="listile links">Data Crud</Link>
                         <a href="javascript:void(0)" className="listile">Dashboard</a>
                         <a href="javascript:void(0)" className="listile">About</a>
                         <a href="javascript:void(0)" className="listile">Creatifity</a>
@@ -114,10 +101,11 @@ const Navbar = ({children}) => {
                      </div>
                   </div>
                </div>
-               <div className="h-100 p-0 float-right" id="navbar">
-                  <nav className="navbar navbar-expand-sm navbar-light bg-light shadow text-dark py-3 px-2">
+               <div className="h-100 p-0 float-right overflow-auto" id="navbar">
+                  <nav className="navbar navbar-expand-sm navbar-light bg-light shadow-sm text-dark py-3 px-2" style={{height: "8%"}}>
                      <div className="container-fluid justify-content-between">
-                        {CollapseBtn}
+                        <button className="border-0 btn-outline-0 mt-2 bg-light collapse-button" id="fstbtn" onClick={OpenNav}><span className="navbar-toggler-icon"></span></button>
+                        <button className="border-0 btn-outline-0 mt-2 bg-light collapse-button" id="scbtn" onClick={CloseNav}><span className="navbar-toggler-icon"></span></button>
                         <div className="float-end" id="pic2">
                            {ProfileAuthCondition()}
                         </div>

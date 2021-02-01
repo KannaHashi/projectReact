@@ -16,14 +16,22 @@ body {
    background-size: cover;
 }
 
+.nav-link.active {
+   color: #2ECC71;
+}
+
+.pointer:hover {
+   cursor: pointer;
+}
+
 .text-lgreen {
    /* color: #1fb174; */
    color: #2ECC71;
 }
 
-h1, h2, h3, h4, h5, h6:hover {
+/* h1, h2, h3, h4, h5, h6:hover {
    cursor: default;
-}
+} */
 
 .border-lgreen {
    /* color: #1fb174; */
@@ -210,13 +218,13 @@ h1, h2, h3, h4, h5, h6:hover {
    background-color: #1a6452;
    overflow: hidden;
    z-index: 2;
-   position: absolute;
+   position: fixed;
    /* transition: 0.4s; */
 }
 
 .listile {
-   padding-left: 10%;
-   padding-right: 10%;
+   padding-left: 15%;
+   padding-right: 15%;
    padding-top: 5%;
    padding-bottom: 5%;
    color: white;
@@ -262,8 +270,8 @@ h1, h2, h3, h4, h5, h6:hover {
 }
 
 #pp {
-   width: 40px;
-   height: 40px;
+   width: 30px;
+   height: 30px;
 }
 
 #egretIcon {
@@ -293,7 +301,11 @@ h1, h2, h3, h4, h5, h6:hover {
 }
 
 .bg-lgreen-gradient-start {
-   background-image: linear-gradient(to right, rgba(19, 143, 122, 0.788), rgba(13, 216, 114, 1));
+   background-image: linear-gradient(to right, rgba(19, 143, 122, 0.788), rgba(13, 216, 114, 0.567));
+}
+
+.bg-lgreen-gradient-top {
+   background-image: linear-gradient(to bottom, rgba(19, 143, 122, 0.788), rgba(13, 216, 114, 0.567));
 }
 
 .mxx-3 {
@@ -307,6 +319,26 @@ h1, h2, h3, h4, h5, h6:hover {
 
 .h-row {
    height: 300px;
+}
+
+.w-10 {
+   width: 10%;
+}
+
+.w-70 {
+   width: 70%;
+}
+
+.w-70-100 {
+   width: 100%;
+}
+
+.w-80 {
+   width: 80%;
+}
+
+.ms-self-4 {
+   margin-left: 8%;
 }
 
 /* .sidenav:before {
@@ -329,7 +361,25 @@ h1, h2, h3, h4, h5, h6:hover {
    opacity: 0.7;
 } */
 
+.nav-responsive {
+   width: auto;
+}
+
 @media only screen and (max-width: 720px) {
+   .btn {
+      padding: 15% 30%;
+      font-size: 2px;
+   }
+   .nav-responsive {
+      width: auto!important;
+   }
+   .ms-self-4 {
+      /* margin-left: 2%; */
+      margin: 0%;
+   }
+   .w-70-100 {
+      width: 100%;
+   }
    .mxx-3 {
       margin-right: 0.3rem;
       margin-left: 0.3rem;
@@ -432,7 +482,7 @@ h1, h2, h3, h4, h5, h6:hover {
       width: 100%;
    }
    body, .btn {
-      font-size: 10px;
+      font-size: 8px;
    }
    body {
       overflow-y: scroll;
