@@ -6,37 +6,48 @@ import { faEnvelope, faArrowLeft, faKey, faUserCircle, faHome, faChevronRight, f
 class Data extends Component {
    componentDidMount() {
       console.log('gassss')
+      let uriUrl = window.document.URL.split('/');
+      let dock = document.getElementsByClassName('nav-link');
+      let coba = {target : null};
+      // console.log(dock)
+      for (let index = 0; index < dock.length; index++) {
+         if (dock[index].dataset['name'] === uriUrl[4].substr(1)) {
+            coba.target = dock[index];
+         }
+      }
+      this.OpenLink(coba)
+   }
+
+   OpenLink(e) {
+      var i, tab, tablink, targetP, tabtitle, title;
+      tabtitle = ['Santri', 'Musyrif', 'Guru']
+      tablink = ['crudsantri', 'crudmusyrif', 'crudguru'];
+      title = document.getElementById('title');
+      targetP = document.getElementsByClassName('nav-link');
+      for (let index = 0; index < tablink.length; index++) {
+         document.getElementById(tablink[index]).style.display = 'none';
+      }
+      for (let index = 0; index < 3; index++) {
+         console.log(tabtitle[index])
+      }
+      for (let index = 0; index < tablink.length; index++) {
+         try {
+            targetP[index+1].classList.remove('active')
+         } catch (e) {}
+      }
+      if (e.target.dataset['name'] === "crudguru") {
+         title.innerHTML = "Guru"
+      } else if (e.target.dataset['name'] === "crudmusyrif") {
+         title.innerHTML = "Musyrif"
+      } else {
+         title.innerHTML = "Santri"
+      }
+      console.log(e.target.dataset['name'])
+      document.getElementById(e.target.dataset['name']).style.display = "block"
+      e.target.classList.add('active')
+      tab = document.getElementsByClassName(tab);
    }
    render() {
-      function OpenLink(e) {
-         var i, tab, tablink, targetP, tabtitle, title;
-         tabtitle = ['Santri', 'Musyrif', 'Guru']
-         tablink = ['crudsantri', 'crudmusyrif', 'crudguru'];
-         title = document.getElementById('title');
-         targetP = document.getElementsByClassName('nav-link');
-         for (let index = 0; index < tablink.length; index++) {
-            document.getElementById(tablink[index]).style.display = 'none';
-         }
-         for (let index = 0; index < 3; index++) {
-            console.log(tabtitle[index])
-         }
-         for (let index = 0; index < tablink.length; index++) {
-            try {
-               targetP[index+1].classList.remove('active')
-            } catch (e) {}
-         }
-         if (e.target.dataset['name'] === "crudguru") {
-            title.innerHTML = "Guru"
-         } else if (e.target.dataset['name'] === "crudmusyrif") {
-            title.innerHTML = "Musyrif"
-         } else {
-            title.innerHTML = "Santri"
-         }
-         console.log(e.target.dataset['name'])
-         document.getElementById(e.target.dataset['name']).style.display = "block"
-         e.target.classList.add('active')
-         tab = document.getElementsByClassName(tab);
-      }
       return(
          <React.Fragment>
             <div className="container-fluid">
@@ -56,23 +67,22 @@ class Data extends Component {
                   </nav>
                   <div className="col-12 text-start px-0 py-3">
                      <div className="card shadow border-0 rounded">
-                        <div className="card-header p-4 pb-0 border-0 bg-lgreen-gradient-start text-light">
-                           <div className="row p-0 justify-content-between w-100">
-                              <ul className="nav nav-tabs border-0 nav-responsive" style={{ width: '50%' }}>
-                                 <li className="nav-item w-70-100 ms-self-4 ps-4">
-                                    <h5 id="title" className="pb-2" style={{transition: "0.3s"}}>Santri</h5>
-                                    {/* <h5 id="title" className="pb-2" style={{transition: "0.3s"}}>Santri</h5> */}
+                        <div className="card-header p-self-5 pb-0 border-0 bg-lgreen-gradient-start text-light">
+                           <div className="row p-0 justify-content-between w-100 m-0">
+                              <ul className="nav nav-tabs border-0 nav-responsive">
+                                 <li className="nav-item ms-self-4">
+                                    <h5 id="title" className="pb-2">Santri</h5>
                                  </li>
                               </ul>
-                              <ul className="nav nav-tabs border-0 d-flex justify-content-end nav-responsive">
-                                 <li className="nav-item">
-                                    <p onClick={OpenLink} data-name="crudsantri" className="nav-link links active pointer" aria-current="page">Santri</p>
+                              <ul className="nav nav-tabs border-0 d-flex justify-content-end nav-responsive" id="navtab">
+                                 <li className="nav-item of-0">
+                                    <a href="#crudsantri" onClick={this.OpenLink} data-name="crudsantri" className="nav-link links active pointer of-0" aria-current="page">Santri</a>
                                  </li>
-                                 <li className="nav-item">
-                                    <p onClick={OpenLink} data-name="crudmusyrif" className="nav-link links pointer" aria-current="page">Musrip</p>
+                                 <li className="nav-item of-0">
+                                    <a href="#crudmusyrif" onClick={this.OpenLink} data-name="crudmusyrif" className="nav-link links pointer of-0" aria-current="page">Musrip</a>
                                  </li>
-                                 <li className="nav-item">
-                                    <p onClick={OpenLink} data-name="crudguru" className="nav-link links pointer" aria-current="page">Guru</p>
+                                 <li className="nav-item of-0">
+                                    <a href="#crudguru" onClick={this.OpenLink} data-name="crudguru" className="nav-link links pointer of-0" aria-current="page">Guru</a>
                                  </li>
                               </ul>
                            </div>
